@@ -1,0 +1,16 @@
+import requests
+import json
+
+username = 'vitaliydorkin'
+main_link = 'https://api.github.com'
+
+response = requests.get(f'{main_link}/users/{username}/repos')
+
+with open('repos.json', 'w') as f:
+    json.dump(response.json(), f)
+
+for i in response.json():
+    print(i['name'])
+
+
+## Задание 2 (Попробую сдать со вторым уроком)
